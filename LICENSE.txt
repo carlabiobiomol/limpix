@@ -1,0 +1,25 @@
+LIMPIX — LICENÇA PROPRIETÁRIA
+Copyright (c) 2025 Liah — Limpix
+
+Todos os direitos reservados.
+
+Este repositório, incluindo mas não limitado a código-fonte, scripts, 
+metodologia, templates, materiais de marketing, identidade visual, nome 
+"Limpix" e qualquer conteúdo associado, é propriedade exclusiva da autora.
+
+PERMISSÕES CONCEDIDAS:
+- Visualização do código para fins educacionais e de portfólio
+- Fork pessoal para estudos não-comerciais, desde que mantida atribuição
+
+PROIBIÇÕES EXPRESSAS:
+- Uso comercial de qualquer parte deste projeto sem autorização escrita
+- Redistribuição ou revenda dos scripts, templates ou metodologia
+- Uso do nome "Limpix" ou identidade visual associada
+- Criação de serviços derivados sem licenciamento
+
+Para solicitação de licença comercial ou parcerias:
+  Entre em contato via Instagram @limpix
+
+A autora reserva o direito de alterar os termos desta licença a qualquer momento.
+
+Este software é fornecido "como está", sem garantias de qualquer tipo.
