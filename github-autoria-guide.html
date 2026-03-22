@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limpix — Guia GitHub + Autoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --card: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --border-strong: rgba(0,0,0,0.14);
+    --text: #1a1917;
+    --muted: #6b6866;
+    --dim: #b4b2a9;
+    --green: #1a7a4a;
+    --green-bg: #edf7f1;
+    --green-border: rgba(26,122,74,0.15);
+    --amber: #8a5c0a;
+    --amber-bg: #fef8ed;
+    --amber-border: rgba(138,92,10,0.15);
+    --blue: #1a4f8a;
+    --blue-bg: #eef4fc;
+    --blue-border: rgba(26,79,138,0.15);
+    --red: #8a1a1a;
+    --red-bg: #fdf0f0;
+    --red-border: rgba(138,26,26,0.15);
+    --purple: #5a1a8a;
+    --purple-bg: #f5f0fd;
+    --limpix: #0f8a55;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .page { max-width: 780px; margin: 0 auto; padding: 0 32px 80px; }
+
+  /* HEADER */
+  .page-header {
+    padding: 56px 0 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+
+  .breadcrumb {
+    font-size: 12px;
+    color: var(--dim);
+    letter-spacing: 0.06em;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .breadcrumb span { color: var(--limpix); font-weight: 500; }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+
+  .page-desc {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 560px;
+  }
+
+  /* SECTION */
+  .section { margin-bottom: 52px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-icon {
+    width: 36px; height: 36px;
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .section-icon.green  { background: var(--green-bg); }
+  .section-icon.amber  { background: var(--amber-bg); }
+  .section-icon.blue   { background: var(--blue-bg); }
+  .section-icon.purple { background: var(--purple-bg); }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  /* CALLOUT */
+  .callout {
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 14px 0;
+    font-size: 14px;
+    line-height: 1.65;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .callout.green  { background: var(--green-bg);  border: 1px solid var(--green-border);  color: var(--green); }
+  .callout.amber  { background: var(--amber-bg);  border: 1px solid var(--amber-border);  color: var(--amber); }
+  .callout.blue   { background: var(--blue-bg);   border: 1px solid var(--blue-border);   color: var(--blue); }
+  .callout.red    { background: var(--red-bg);    border: 1px solid var(--red-border);    color: var(--red); }
+
+  .callout-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .callout p { color: inherit; font-size: 14px; margin: 0; }
+  .callout strong { color: inherit; font-weight: 500; }
+
+  /* STEP CARDS */
+  .steps { display: flex; flex-direction: column; gap: 12px; }
+
+  .step {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--limpix);
+    background: var(--green-bg);
+    border-radius: 6px;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .step-body { flex: 1; }
+
+  .step-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+
+  .step-desc:last-child { margin-bottom: 0; }
+
+  /* CODE */
+  .code-block {
+    background: #1a1917;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 10px 0;
+    overflow-x: auto;
+  }
+
+  .code-block code {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: #c8c5be;
+    line-height: 1.8;
+    display: block;
+    white-space: pre;
+  }
+
+  .code-block code .c  { color: #5a8040; }
+  .code-block code .k  { color: #3ecf8e; }
+  .code-block code .s  { color: #e8c878; }
+  .code-block code .d  { color: #6b8acc; }
+
+  /* TREE */
+  .file-tree {
+    background: #1a1917;
+    border-radius: 10px;
+    padding: 20px 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    line-height: 2;
+    color: #6b6866;
+  }
+
+  .file-tree .dir  { color: #3ecf8e; font-weight: 400; }
+  .file-tree .file { color: #c8c5be; }
+  .file-tree .note { color: #3a3835; font-style: italic; }
+
+  /* PILLARS GRID */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .pillar {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .pillar-icon { font-size: 22px; margin-bottom: 10px; }
+
+  .pillar-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .pillar-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* DIFF TABLE */
+  .diff-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 16px 0;
+  }
+
+  .diff-table th {
+    text-align: left;
+    padding: 10px 14px;
+    background: var(--bg);
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .diff-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .diff-table tr:last-child td { border-bottom: none; }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  .tag.yes    { background: var(--green-bg);  color: var(--green); }
+  .tag.no     { background: var(--red-bg);    color: var(--red); }
+  .tag.future { background: var(--amber-bg);  color: var(--amber); }
+
+  /* CHECKLIST */
+  ul.checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 12px 0;
+  }
+
+  ul.checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  ul.checklist li::before {
+    content: '→';
+    color: var(--limpix);
+    flex-shrink: 0;
+    font-weight: 500;
+    margin-top: 1px;
+  }
+
+  /* BADGE */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--green-bg);
+    border: 1px solid var(--green-border);
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.04em;
+  }
+
+  /* FOOTER */
+  .page-footer {
+    margin-top: 64px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: gap;
+    gap: 16px;
+  }
+
+  .footer-brand {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .footer-brand span { color: var(--limpix); }
+
+  .footer-note {
+    font-size: 12px;
+    color: var(--dim);
+  }
+
+  @media (max-width: 600px) {
+    .page { padding: 0 20px 60px; }
+    .pillars { grid-template-columns: 1fr; }
+    h1 { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="page-header">
+    <div class="breadcrumb">limpix / <span>docs</span> / github-autoria.md</div>
+    <h1>GitHub, Autoria<br>e Diferenciação</h1>
+    <p class="page-desc">Tudo que você precisa saber para proteger o projeto, publicar no GitHub do jeito certo e se destacar como o único serviço estruturado do mercado.</p>
+  </div>
+
+  <!-- AUTORIA -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon green">🔐</div>
+      <h2>Como manter sua autoria</h2>
+    </div>
+
+    <div class="callout amber">
+      <span class="callout-icon">⚠️</span>
+      <p><strong>Importante:</strong> no Brasil, direitos autorais sobre software e método são protegidos pela Lei 9.610/98 e Lei 9.609/98, desde o momento da criação — sem necessidade de registro. Mas registrar <strong>prova a data</strong> e facilita qualquer disputa futura.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">📁</div>
+        <div class="pillar-title">Commit no GitHub</div>
+        <div class="pillar-desc">O histórico de commits do GitHub tem <strong>data e hora</strong> registrada em servidor. É prova técnica de quando você criou. Seu primeiro commit já documenta a autoria.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📜</div>
+        <div class="pillar-title">Licença no repositório</div>
+        <div class="pillar-desc">O arquivo LICENSE na raiz do repositório define o que outros podem ou não fazer com seu código. Use a licença proprietária incluída neste projeto.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🏛️</div>
+        <div class="pillar-title">INPI — Registro de marca</div>
+        <div class="pillar-desc">Registre <strong>"Limpix"</strong> como marca no INPI (inpi.gov.br). Custa ~R$355 e protege o nome comercialmente em território nacional por 10 anos.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📧</div>
+        <div class="pillar-title">E-mail datado</div>
+        <div class="pillar-desc">Envie para seu próprio e-mail um arquivo .zip com todo o projeto descrevendo o que é. Data e hora do servidor de e-mail viram prova adicional.</div>
+      </div>
+    </div>
+
+    <div class="callout green">
+      <span class="callout-icon">✅</span>
+      <p>O mais importante agora: <strong>faça o primeiro commit hoje</strong>. O carimbo de data do GitHub é reconhecido juridicamente como evidência de criação. Registro no INPI pode vir depois, quando o projeto estiver gerando receita.</p>
+    </div>
+  </div>
+
+  <!-- GITHUB PASSO A PASSO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon blue">🐙</div>
+      <h2>Criar o repositório no GitHub</h2>
+    </div>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Crie sua conta no GitHub</div>
+          <div class="step-desc">Acesse github.com e crie uma conta. Escolha o username com cuidado — vai aparecer no link do seu projeto. Sugestão: <strong>@liah-limpix</strong> ou <strong>@limpix-app</strong></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Crie o repositório</div>
+          <div class="step-desc">Clique em "New repository". Configure assim:</div>
+          <div class="code-block"><code><span class="k">Nome:</span>        <span class="s">limpix</span>
+<span class="k">Visibilidade:</span> <span class="s">Public</span>  <span class="c">(aparece no portfólio)</span>
+<span class="k">Descrição:</span>   <span class="s">"Organização inteligente do Google — método, scripts e automações"</span>
+<span class="k">README:</span>      <span class="s">✅ Adicionar automaticamente</span>
+<span class="k">Licença:</span>     <span class="s">Nenhuma</span> <span class="c">(vamos adicionar a nossa)</span></code></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Monte a estrutura de pastas</div>
+          <div class="step-desc">Clique em "Add file → Create new file" e crie os arquivos da estrutura. Ou use o Git no terminal:</div>
+          <div class="code-block"><code><span class="c"># No terminal (se tiver Git instalado)</span>
+<span class="k">git</span> clone https://github.com/SEU_USUARIO/limpix
+<span class="k">cd</span> limpix
+
+<span class="c"># Crie as pastas</span>
+<span class="k">mkdir</span> metodo scripts templates marketing docs
+
+<span class="c"># Copie os arquivos baixados aqui
+# Depois suba tudo:</span>
+<span class="k">git</span> add .
+<span class="k">git</span> commit -m <span class="s">"feat: estrutura inicial do projeto Limpix"</span>
+<span class="k">git</span> push origin main</code></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Configure o perfil do repositório</div>
+          <div class="step-desc">No repositório, clique na engrenagem ⚙️ ao lado de "About" e preencha:</div>
+          <ul class="checklist">
+            <li>Descrição: <em>"Serviço de organização inteligente do Google — Gmail, Drive e Fotos"</em></li>
+            <li>Website: link do seu Instagram ou landing page</li>
+            <li>Topics (tags): <code>gmail</code> <code>google-drive</code> <code>automation</code> <code>apps-script</code> <code>saas</code> <code>brasil</code></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Ative o GitHub Pages (opcional mas recomendado)</div>
+          <div class="step-desc">Transforma o README em uma página web pública. Vá em Settings → Pages → Branch: main → Save. Seu projeto vai ter um link tipo <strong>seuusuario.github.io/limpix</strong></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="callout blue">
+      <span class="callout-icon">💡</span>
+      <p>Adicione o link do seu GitHub no Instagram e na bio de todas as redes. Um repositório organizado e bem documentado passa <strong>credibilidade imediata</strong> — especialmente para clientes B2B e desenvolvedores que possam querer colaborar.</p>
+    </div>
+  </div>
+
+  <!-- DIFERENCIAÇÃO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon purple">⚡</div>
+      <h2>Máxima diferenciação de mercado</h2>
+    </div>
+
+    <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px;">Análise honesta: o que existe hoje vs o que o Limpix pode ser.</p>
+
+    <table class="diff-table">
+      <thead>
+        <tr>
+          <th>Diferencial</th>
+          <th>Mercado atual</th>
+          <th>Limpix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Método documentado e replicável</td>
+          <td><span class="tag no">Não existe</span></td>
+          <td><span class="tag yes">✓ GitHub público</span></td>
+        </tr>
+        <tr>
+          <td>Relatório antes/depois mensurável</td>
+          <td><span class="tag no">Não existe</span></td>
+          <td><span class="tag yes">✓ Todo cliente</span></td>
+        </tr>
+        <tr>
+          <td>Automação via Apps Script incluída</td>
+          <td><span class="tag no">Não existe</span></td>
+          <td><span class="tag yes">✓ Instalado</span></td>
+        </tr>
+        <tr>
+          <td>Análise assistida por IA</td>
+          <td><span class="tag no">Não existe</span></td>
+          <td><span class="tag yes">✓ ChatGPT/Claude</span></td>
+        </tr>
+        <tr>
+          <td>Produto digital (curso/templates)</td>
+          <td><span class="tag no">Não existe BR</span></td>
+          <td><span class="tag future">Em breve v1.5</span></td>
+        </tr>
+        <tr>
+          <td>Dashboard SaaS para cliente</td>
+          <td><span class="tag no">Não existe</span></td>
+          <td><span class="tag future">Roadmap v3.0</span></td>
+        </tr>
+        <tr>
+          <td>Protocolo de segurança documentado</td>
+          <td><span class="tag no">Não existe</span></td>
+          <td><span class="tag yes">✓ Obrigatório</span></td>
+        </tr>
+        <tr>
+          <td>Atendimento B2B estruturado</td>
+          <td><span class="tag no">Informal</span></td>
+          <td><span class="tag yes">✓ Proposta formal</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout green">
+      <span class="callout-icon">🎯</span>
+      <p><strong>Conclusão:</strong> o Limpix não tem concorrente direto no Brasil com método estruturado. A janela de oportunidade para se tornar referência nesse nicho é agora — antes que alguém com mais recursos chegue.</p>
+    </div>
+  </div>
+
+  <!-- PRÓXIMOS PASSOS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon amber">🗺️</div>
+      <h2>Seus próximos 5 passos</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Hoje — criar o repositório no GitHub</div>
+          <div class="step-desc">Sobe o README, a LICENSE e os scripts. O carimbo de data começa a proteger sua autoria a partir deste momento.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Esta semana — registrar @limpix nas redes</div>
+          <div class="step-desc">Instagram, TikTok, YouTube e WhatsApp Business. Mesmo que não use ainda, garante o username antes de alguém tomar.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Este mês — primeiro cliente real + depoimento</div>
+          <div class="step-desc">Com depoimento em mãos, você tem prova social. Com prova social, o preço pode subir e o conteúdo converte melhor.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Mês 2 — registrar marca no INPI</div>
+          <div class="step-desc">Quando o projeto estiver gerando receita, invista R$355 no registro da marca "Limpix". Protege o nome por 10 anos em território nacional.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Mês 3 — lançar o primeiro produto digital</div>
+          <div class="step-desc">Checklist premium ou pack de scripts na Hotmart. A partir daqui, o projeto começa a gerar receita mesmo enquanto você dorme.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-brand">Limp<span>ix</span></div>
+    <div class="footer-note">© 2025 Liah — Todos os direitos reservados</div>
+  </div>
+
+</div>
+</body>
+</html>
