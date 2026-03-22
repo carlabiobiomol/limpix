@@ -89,7 +89,7 @@ B2B (até 10 pessoas)	Google Workspace completo	R$ 300/mês
 📬 Contato
 Para parcerias, licenciamento ou contratação do serviço:
 Instagram: @bioinfo.ia
-WhatsApp: 16 988568694
+WhatsApp: disponível via Instagram @bioinfo.ia
 ---
 © 2026 Limpix — Todos os direitos reservados.  
 Criado com método próprio, documentado neste repositório.
