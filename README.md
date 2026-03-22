@@ -1,15 +1,15 @@
 🟢 Limpix — Organização Inteligente do Google
 > **"Seu Google. Finalmente organizado."**  
-> Serviço + método + automação para organizar Gmail, Drive e Google Fotos — com foco em resultado mensurável, recorrência e escalabilidade.
+> Serviço + método + automação para organizar Gmail, Drive e Google Fotos  com foco em resultado mensurável, recorrência e escalabilidade.
 ---
 📋 Sobre o Projeto
-O Limpix nasceu da observação de que a maioria das pessoas nunca organizou seu Google desde que criou a conta. E-mails acumulados, Drive bagunçado, Fotos misturadas com prints — é um problema universal, recorrente e visível.
+O Limpix nasceu da observação de que a maioria das pessoas nunca organizou seu Google desde que criou a conta. E-mails acumulados, Drive bagunçado, Fotos misturadas com prints  é um problema universal, recorrente e visível.
 Este repositório documenta o método, ferramentas, scripts de automação e roteiro de negócio do Limpix, permitindo que o projeto evolua de serviço manual para produto digital e, futuramente, para uma plataforma SaaS.
 ---
 👤 Autoria e Propriedade Intelectual
 ```
 Projeto:     Limpix — Organização Inteligente do Google
-Autora:      Liah
+Autora:      Carla Rodrigues de Moraes
 Criado em:   Março de 2025
 Versão:      1.0.0
 Licença:     Proprietária (ver LICENSE)
