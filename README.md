@@ -93,3 +93,4 @@ WhatsApp: 16 988568694
 ---
 © 2026 Limpix — Todos os direitos reservados.  
 Criado com método próprio, documentado neste repositório.
+Licença: Proprietária (ver LICENSE)
